@@ -7,7 +7,7 @@ def main():
     input_data = 'data/raw/depression_data.csv'
     output_data = 'data/cleaned/cleaned_data.csv'
     clean_and_normalize_data(input_data, output_data)
-    create_visualizations(output_data)
+    create_visualizations(output_data, input_data)
 
 if __name__ == "__main__":
     main()

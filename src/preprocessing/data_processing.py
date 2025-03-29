@@ -10,6 +10,19 @@ def clean_and_normalize_data(input_path, output_path):
     
     # Filtrare: păstrează doar rândurile cu Age ≤ 65
     df = df[df['Age'] <= 65]
+
+    # Verificare duplicat
+    if df.duplicated().sum() > 0:
+        print("Există rânduri duplicate. Acestea vor fi eliminate.")
+        df.drop_duplicates(inplace=True)
+    
+    # Verificare outliers: eliminăm valorile extreme folosind IQR
+    Q1 = df['Income'].quantile(0.25)
+    Q3 = df['Income'].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    df = df[(df['Income'] >= lower_bound) & (df['Income'] <= upper_bound)]
     
     # Conversia coloanelor numerice la tipul corect
     df['Age'] = df['Age'].astype(int)
