@@ -11,6 +11,9 @@ def clean_and_normalize_data(input_path, output_path):
     # Filtrare: păstrează doar rândurile cu Age ≤ 65
     df = df[df['Age'] <= 65]
 
+    # Eliminare coloana Name
+    df = df.drop(columns=["Name"])
+
     # Verificare duplicat
     if df.duplicated().sum() > 0:
         print("Există rânduri duplicate. Acestea vor fi eliminate.")
