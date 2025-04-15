@@ -6,7 +6,7 @@ from sklearn.metrics import silhouette_score
 import seaborn as sns
 
 
-def kmeansclustering(cleaned_data_path):
+def kmeansclustering(cleaned_data_path,interpreted_data_path):
     # 1. Încarcă datele direct
     df = pd.read_csv(cleaned_data_path)
 
@@ -41,6 +41,7 @@ def kmeansclustering(cleaned_data_path):
     # 7. Analiză pe clustere
     summary = df.groupby("Cluster").mean()
     print("Medii pe fiecare cluster:\n", summary)
+    summary.to_csv(interpreted_data_path, index=True)
 
     # 8. Vizualizare cu PCA
     pca = PCA(n_components=2)
