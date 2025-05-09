@@ -1,4 +1,4 @@
-from data_analysis_project.src.clustering.clustering import kmeansclustering
+from src.clustering.clustering import kmeansclustering
 from src.preprocessing.data_processing import clean_and_normalize_data
 from src.visualizations.data_visualizations import create_visualizations
 

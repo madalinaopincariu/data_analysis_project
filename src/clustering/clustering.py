@@ -10,10 +10,10 @@ def kmeansclustering(cleaned_data_path,interpreted_data_path):
     # 1. Încarcă datele direct
     df = pd.read_csv(cleaned_data_path)
 
-    # 2. Eșantion pentru Silhouette Score (rapide)
-    sample_df = df.sample(n=10000, random_state=42)
+    # 2. Eșantion pentru Silhouette Score 
+    sample_df = df.sample(n=20000, random_state=42)
 
-    # 3. Găsim k optim (doar silhouette score pe eșantion)
+    # 3. Găsim k optim
     silhouette_scores = []
     cluster_range = range(2, 11)
 
@@ -32,7 +32,7 @@ def kmeansclustering(cleaned_data_path,interpreted_data_path):
     plt.show()
 
     # 5. Alege k în funcție de graficul anterior (ex: k = 4)
-    k_optimal = 4  # <- modifică aici în funcție de ce observi
+    k_optimal = 4 
 
     # 6. Aplicăm KMeans pe tot datasetul
     kmeans = KMeans(n_clusters=k_optimal, random_state=42, n_init=10)
