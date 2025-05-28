@@ -42,10 +42,10 @@ def clean_and_normalize_data(input_path, output_path):
         'Alcohol Consumption': {"high": 0, "low": 1, "moderate": 2},
         'Dietary Habits': {"moderate": 0, "healthy": 1, "unhealthy": 2},
         'Sleep Patterns': {"fair": 0, "good": 1, "poor": 2},
-        'History of Mental Illness': {"yes": 0, "no": 1},
-        'History of Substance Abuse': {"yes": 0, "no": 1},
-        'Family History of Depression': {"yes": 0, "no": 1},
-        'Chronic Medical Conditions': {"yes": 0, "no": 1}
+        'History of Mental Illness': {"yes": 1, "no": 0},
+        'History of Substance Abuse': {"yes": 1, "no": 0},
+        'Family History of Depression': {"yes": 1, "no": 0},
+        'Chronic Medical Conditions': {"yes": 1, "no": 0}
     }
     
     # Aplicare encoding manual
